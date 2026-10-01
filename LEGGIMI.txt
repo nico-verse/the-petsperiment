@@ -1,22 +1,27 @@
-THE PETSPERIMENT — SITO ITALIANO
+THE PETSPERIMENT — SITO ITALIANO E INGLESE
 
-COME METTERLO ONLINE
-1. Estrai il contenuto dello ZIP sul tuo computer.
-2. Carica index.html, style.css, script.js e la cartella assets nella cartella pubblica del tuo hosting (di solito public_html o www), mantenendo la stessa struttura.
-3. Apri il dominio o la sottocartella in cui hai caricato il sito.
+PUBBLICAZIONE
+1. Estrai questo ZIP.
+2. Carica index.html, index-en.html, style.css, script.js e la cartella assets nella cartella pubblica del tuo hosting (public_html, www o una sottocartella), senza cambiare la struttura.
+3. Apri il tuo dominio: la pagina iniziale è in italiano. Usa IT/EN in alto per cambiare lingua.
 
-Se usi GitHub Pages, carica gli stessi file nella cartella pubblicata dal repository. index.html deve trovarsi alla radice di quella cartella.
+Per GitHub Pages carica gli stessi file nella cartella pubblicata dal repository.
 
-Il sito è statico: non richiede WordPress, database, installazioni o compilazione. Puoi pubblicarlo anche in una sottocartella perché i collegamenti alle immagini sono relativi.
+Il sito è statico: non servono WordPress, database o compilazione. Funziona anche in una sottocartella. Tutte le immagini e il logo sono inclusi; nessuna immagine dipende dal link temporaneo Facebook.
 
-Le immagini e il logo sono inclusi nel pacchetto; l'immagine iniziale è salvata localmente e non dipende dal link temporaneo di Facebook.
+AGGIORNAMENTI INCLUSI
+- Versione italiana e inglese, con rispettive immagini iniziali.
+- Nuova creatura e carta Evento Vertigo.
+- Nuova carta Scienziato Fede bilingue.
+- Anteprima della creatura Halloween.
+- Tre carte Esperimento con dissolvenza, selezione colore, pausa e ingrandimento.
 
-I pulsanti social aprono i rispettivi profili. Il pulsante di gioco online apre la versione base già ospitata all'indirizzo https://thepetsperiment.rokkonick.workers.dev: quel gioco non è incluso in questo pacchetto. Il collegamento Scrivimi apre il programma email del visitatore.
+Le immagini delle carte sono le originali fornite: Fede è bilingue; le altre carte riportano i testi italiani. Nella pagina inglese i testi del sito e le descrizioni delle anteprime sono in inglese.
 
-CONTENUTO
-index.html — pagina italiana
-style.css — stile e adattamento mobile
-script.js — menu, anteprime e finestre delle regole
-assets/ — immagini e logo
+Il pulsante di gioco online apre la versione base già ospitata su https://thepetsperiment.rokkonick.workers.dev. Quel gioco è separato e non è incluso in questo pacchetto. I collegamenti social aprono i profili, mentre Scrivimi / Get in touch apre il programma email.
 
-Per modificare i testi, apri index.html con un editor di testo. Per modificare i colori e l'impaginazione, usa style.css.
+MODIFICHE
+Testi: index.html (italiano) e index-en.html (inglese).
+Aspetto e colori: style.css.
+Menu, anteprime, carte a dissolvenza: script.js.
+Immagini: assets/.
