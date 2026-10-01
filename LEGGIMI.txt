@@ -1,0 +1,22 @@
+THE PETSPERIMENT — SITO ITALIANO
+
+COME METTERLO ONLINE
+1. Estrai il contenuto dello ZIP sul tuo computer.
+2. Carica index.html, style.css, script.js e la cartella assets nella cartella pubblica del tuo hosting (di solito public_html o www), mantenendo la stessa struttura.
+3. Apri il dominio o la sottocartella in cui hai caricato il sito.
+
+Se usi GitHub Pages, carica gli stessi file nella cartella pubblicata dal repository. index.html deve trovarsi alla radice di quella cartella.
+
+Il sito è statico: non richiede WordPress, database, installazioni o compilazione. Puoi pubblicarlo anche in una sottocartella perché i collegamenti alle immagini sono relativi.
+
+Le immagini e il logo sono inclusi nel pacchetto; l'immagine iniziale è salvata localmente e non dipende dal link temporaneo di Facebook.
+
+I pulsanti social aprono i rispettivi profili. Il pulsante di gioco online apre la versione base già ospitata all'indirizzo https://thepetsperiment.rokkonick.workers.dev: quel gioco non è incluso in questo pacchetto. Il collegamento Scrivimi apre il programma email del visitatore.
+
+CONTENUTO
+index.html — pagina italiana
+style.css — stile e adattamento mobile
+script.js — menu, anteprime e finestre delle regole
+assets/ — immagini e logo
+
+Per modificare i testi, apri index.html con un editor di testo. Per modificare i colori e l'impaginazione, usa style.css.
