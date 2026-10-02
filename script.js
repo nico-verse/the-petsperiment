@@ -70,3 +70,11 @@ buttons.forEach((b,i)=>b.addEventListener('click',()=>{show(i);schedule()}));pau
  document.addEventListener('visibilitychange',schedule);document.querySelectorAll('dialog').forEach(dialog=>{dialog.addEventListener('close',schedule);new MutationObserver(schedule).observe(dialog,{attributes:true,attributeFilter:['open']})});
  reduced.addEventListener('change',()=>{paused=reduced.matches;update()});update();
 })();
+
+// Pause and resume the continuous text ribbon.
+document.querySelectorAll('.ribbon-pause').forEach(button=>button.addEventListener('click',()=>{
+ const paused=button.closest('.ribbon').classList.toggle('is-paused');
+ button.setAttribute('aria-pressed',String(paused));
+ button.setAttribute('aria-label',english?(paused?'Resume scrolling':'Pause scrolling'):(paused?'Riprendi lo scorrimento':'Ferma lo scorrimento'));
+ button.textContent=paused?'▶':'Ⅱ';
+}));

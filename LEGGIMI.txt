@@ -33,3 +33,5 @@ AGGIORNAMENTO: tre locandine nella sequenza iniziale italiana, con dissolvenza e
 AGGIORNAMENTO TESTI: terminologia Esperimenti uniformata in italiano e inglese; nuova frase sulla protezione della Creatura.
 
 AGGIORNAMENTO: titolo Dai vita alla tua creatura e nuova foto del tavolo ruotata, ritagliata e corretta, nelle due lingue.
+
+AGGIORNAMENTO: fascia con frasi scorrevoli e pulsante pausa; video YouTube verticale in entrambe le lingue. Il video richiede una connessione Internet e resta ospitato su YouTube.
