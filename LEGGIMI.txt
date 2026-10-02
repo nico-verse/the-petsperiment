@@ -31,3 +31,5 @@ Immagini: assets/.
 AGGIORNAMENTO: tre locandine nella sequenza iniziale italiana, con dissolvenza e controlli. Foto reale del gioco ingrandibile in italiano e inglese. Per aggiornare un sito già online, caricare tutti i file del pacchetto, compresa la cartella assets.
 
 AGGIORNAMENTO TESTI: terminologia Esperimenti uniformata in italiano e inglese; nuova frase sulla protezione della Creatura.
+
+AGGIORNAMENTO: titolo Dai vita alla tua creatura e nuova foto del tavolo ruotata, ritagliata e corretta, nelle due lingue.
