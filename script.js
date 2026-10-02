@@ -25,3 +25,48 @@ function show(i){index=i;slides.forEach((s,j)=>{s.classList.toggle('active',i===
 function schedule(){clearInterval(timer);if(!userPaused&&!hovered&&!focused&&!document.hidden&&!document.querySelector('dialog[open]'))timer=setInterval(()=>show((index+1)%slides.length),4500)}
 function updatePause(){pause.setAttribute('aria-pressed',String(userPaused));pause.textContent=userPaused?(english?'Play':'Riprendi'):(english?'Pause':'Pausa')}
 buttons.forEach((b,i)=>b.addEventListener('click',()=>{show(i);schedule()}));pause.addEventListener('click',()=>{userPaused=!userPaused;updatePause();schedule()});carousel.addEventListener('mouseenter',()=>{hovered=true;schedule()});carousel.addEventListener('mouseleave',()=>{hovered=false;schedule()});carousel.addEventListener('focusin',()=>{focused=true;schedule()});carousel.addEventListener('focusout',()=>setTimeout(()=>{focused=carousel.contains(document.activeElement);schedule()},0));document.addEventListener('visibilitychange',schedule);document.querySelectorAll('dialog').forEach(d=>{d.addEventListener('close',schedule);new MutationObserver(schedule).observe(d,{attributes:true,attributeFilter:['open']})});reduced.addEventListener('change',()=>{userPaused=reduced.matches;updatePause();schedule()});updatePause();schedule();}
+
+// Mobile inclination follows the viewport position and uses a standard transform.
+(()=>{
+ const mobile=window.matchMedia('(max-width: 980px)');
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ const targets=[...document.querySelectorAll('.hero-art, .creature-image img, .image-button img, .card-fan button, .module-images img, .halloween-preview img, .event-preview img, .experiment-stage')];
+ const originals=new Map(targets.map(el=>[el,{transform:el.style.transform,transition:el.style.transition}]));
+ const bases=new Map();let frame=0;
+ const enabled=()=>mobile.matches&&!reduced.matches;
+ function paint(){frame=0;if(!enabled()||document.hidden)return;
+  const height=window.innerHeight;
+  targets.forEach((el,i)=>{
+   const r=el.parentElement.getBoundingClientRect();if(r.bottom< -100||r.top>height+100)return;
+   const progress=Math.max(-1,Math.min(1,(height*.52-(r.top+r.height/2))/(height*.48)));
+   const strength=el.classList.contains('hero-art')?.3:1;
+   const direction=i%2===0?1:-1;
+   const angle=progress*9*strength*direction;
+   el.style.transform=(bases.get(el)||'')+' translateY('+(-progress*8*strength).toFixed(2)+'px) rotate('+angle.toFixed(2)+'deg)';
+  });
+ }
+ function queue(){if(enabled()&&!frame)frame=requestAnimationFrame(paint)}
+ function configure(){if(frame){cancelAnimationFrame(frame);frame=0}
+  targets.forEach(el=>{const saved=originals.get(el);el.style.transform=saved.transform;el.style.transition=saved.transition;el.classList.remove('mobile-scroll-image');el.style.removeProperty('--scroll-y');el.style.removeProperty('--scroll-rotate')});
+  bases.clear();
+  if(enabled())targets.forEach(el=>{const base=getComputedStyle(el).transform;bases.set(el,base==='none'?'':base);el.classList.add('mobile-scroll-image');el.style.transition='transform 120ms ease-out'});
+  queue();
+ }
+ window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',queue,{passive:true});document.addEventListener('visibilitychange',queue);mobile.addEventListener('change',configure);reduced.addEventListener('change',configure);configure();
+})();
+
+// Italian hero posters: fade, manual selection and pause controls.
+(()=>{
+ const gallery=document.querySelector('.hero-carousel');if(!gallery)return;
+ const slides=[...gallery.querySelectorAll('.hero-slide')],buttons=[...gallery.querySelectorAll('[data-hero-slide]')],pause=gallery.querySelector('.hero-pause');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');let current=0,paused=reduced.matches,hovered=false,focused=false,timer;
+ function show(index){current=index;slides.forEach((slide,i)=>{slide.classList.toggle('active',i===index);slide.setAttribute('aria-hidden',String(i!==index))});buttons.forEach((button,i)=>button.setAttribute('aria-current',String(i===index)))}
+ function schedule(){clearInterval(timer);if(!paused&&!hovered&&!focused&&!document.hidden&&!document.querySelector('dialog[open]'))timer=setInterval(()=>show((current+1)%slides.length),5000)}
+ function update(){pause.textContent=paused?'Riprendi':'Pausa';pause.setAttribute('aria-pressed',String(paused));schedule()}
+ buttons.forEach((button,i)=>button.addEventListener('click',()=>{show(i);schedule()}));
+ pause.addEventListener('click',()=>{paused=!paused;update()});
+ gallery.addEventListener('mouseenter',()=>{hovered=true;schedule()});gallery.addEventListener('mouseleave',()=>{hovered=false;schedule()});
+ gallery.addEventListener('focusin',()=>{focused=true;schedule()});gallery.addEventListener('focusout',()=>setTimeout(()=>{focused=gallery.contains(document.activeElement);schedule()},0));
+ document.addEventListener('visibilitychange',schedule);document.querySelectorAll('dialog').forEach(dialog=>{dialog.addEventListener('close',schedule);new MutationObserver(schedule).observe(dialog,{attributes:true,attributeFilter:['open']})});
+ reduced.addEventListener('change',()=>{paused=reduced.matches;update()});update();
+})();

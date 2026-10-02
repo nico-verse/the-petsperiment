@@ -10,6 +10,8 @@ Per GitHub Pages carica gli stessi file nella cartella pubblicata dal repository
 Il sito è statico: non servono WordPress, database o compilazione. Funziona anche in una sottocartella. Tutte le immagini e il logo sono inclusi; nessuna immagine dipende dal link temporaneo Facebook.
 
 AGGIORNAMENTI INCLUSI
+- Lettura mobile migliorata: testi maggiori, badge colorati e immagini animate durante lo scorrimento.
+- Sezione Editori / Publishers con contatto per collaborazioni editoriali.
 - Versione italiana e inglese, con rispettive immagini iniziali.
 - Nuova creatura e carta Evento Vertigo.
 - Nuova carta Scienziato Fede bilingue.
@@ -25,3 +27,7 @@ Testi: index.html (italiano) e index-en.html (inglese).
 Aspetto e colori: style.css.
 Menu, anteprime, carte a dissolvenza: script.js.
 Immagini: assets/.
+
+AGGIORNAMENTO: tre locandine nella sequenza iniziale italiana, con dissolvenza e controlli. Foto reale del gioco ingrandibile in italiano e inglese. Per aggiornare un sito già online, caricare tutti i file del pacchetto, compresa la cartella assets.
+
+AGGIORNAMENTO TESTI: terminologia Esperimenti uniformata in italiano e inglese; nuova frase sulla protezione della Creatura.
